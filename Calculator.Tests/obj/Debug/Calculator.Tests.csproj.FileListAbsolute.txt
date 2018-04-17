@@ -1,0 +1,10 @@
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\Calculator.Tests.dll
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\Calculator.Tests.pdb
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\Calculator.dll
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\nunit.framework.dll
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\Calculator.pdb
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\nunit.framework.pdb
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\bin\Debug\nunit.framework.xml
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\obj\Debug\Calculator.Tests.csprojResolveAssemblyReference.cache
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\obj\Debug\Calculator.Tests.dll
+D:\Work\Bitbucket\Calculator\Calculator\Calculator.Tests\obj\Debug\Calculator.Tests.pdb

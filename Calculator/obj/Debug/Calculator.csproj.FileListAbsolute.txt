@@ -1,0 +1,5 @@
+D:\Work\Bitbucket\Calculator\Calculator\Calculator\bin\Debug\Calculator.dll
+D:\Work\Bitbucket\Calculator\Calculator\Calculator\bin\Debug\Calculator.pdb
+D:\Work\Bitbucket\Calculator\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+D:\Work\Bitbucket\Calculator\Calculator\Calculator\obj\Debug\Calculator.dll
+D:\Work\Bitbucket\Calculator\Calculator\Calculator\obj\Debug\Calculator.pdb
