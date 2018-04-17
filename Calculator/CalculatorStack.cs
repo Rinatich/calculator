@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Calculator.Items;
 
 namespace Calculator
 {
     public class CalculatorStack
     {
-        private readonly Stack<ICalculatorTreeItem> _itemStack = new Stack<ICalculatorTreeItem>();
+        private readonly Stack<Decimal> _itemStack = new Stack<Decimal>();
         private readonly Stack<IBinaryTreeItemDecription> _operatorStack = new Stack<IBinaryTreeItemDecription>();
 
         private void Calculate(Func<IBinaryTreeItemDecription, Boolean> predicate)
@@ -23,18 +22,14 @@ namespace Calculator
 
                 var __right = _itemStack.Pop();
                 var __left = _itemStack.Pop();
-                _itemStack.Push(__operator.CreateItem(__left, __right));
+                _itemStack.Push(__operator.Calculate(__left, __right));
             }
         }
 
         public Boolean IsUnaryPossible() => _itemStack.Count == 0;
 
-        public ICalculatorTreeItem PushFinalItemAndGetResult(ICalculatorTreeItem lastItem)
-        {
-            if (lastItem == null)
-                throw new ArgumentNullException(nameof(lastItem));
-
-            _itemStack.Push(lastItem);
+        public Decimal PushFinalItemAndGetResult(Decimal lastItem)
+        {_itemStack.Push(lastItem);
             Calculate(i => true);
 
             if (_operatorStack.Count > 0 || _itemStack.Count > 1)
@@ -43,7 +38,7 @@ namespace Calculator
             return _itemStack.Pop();
         }
 
-        public void PushItemAndOperator(ICalculatorTreeItem item, IBinaryTreeItemDecription desc)
+        public void PushItemAndOperator(Decimal item, IBinaryTreeItemDecription desc)
         {
             _itemStack.Push(item);
             Calculate(i => i.Priority >= desc.Priority);

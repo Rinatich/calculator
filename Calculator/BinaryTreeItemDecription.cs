@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Calculator.Items;
 
 namespace Calculator
 {
     public class BinaryTreeItemDecription : IBinaryTreeItemDecription
     {
-        private readonly Func<ICalculatorTreeItem, ICalculatorTreeItem, ICalculatorTreeItem> _itemCreator;
+        private readonly Func<Decimal, Decimal, Decimal> _itemCreator;
 
         public Int32 Priority { get; }
 
-        public BinaryTreeItemDecription(Int32 priority, Func<ICalculatorTreeItem, ICalculatorTreeItem, ICalculatorTreeItem> creator)
+        public BinaryTreeItemDecription(Int32 priority, Func<Decimal, Decimal, Decimal> creator)
         {
             if (creator == null)
                 throw new ArgumentNullException(nameof(creator));
@@ -22,7 +21,7 @@ namespace Calculator
             _itemCreator = creator;
         }
 
-        public ICalculatorTreeItem CreateItem(ICalculatorTreeItem left, ICalculatorTreeItem right)
+        public Decimal Calculate(Decimal left, Decimal right)
         {
             return _itemCreator(left, right);
         }

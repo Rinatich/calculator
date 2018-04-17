@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Calculator.Items;
 
 namespace Calculator
 {
@@ -11,6 +10,6 @@ namespace Calculator
     {
         Int32 Priority { get; }
 
-        ICalculatorTreeItem CreateItem(ICalculatorTreeItem left, ICalculatorTreeItem right);
+        Decimal Calculate(Decimal left, Decimal right);
     }
 }

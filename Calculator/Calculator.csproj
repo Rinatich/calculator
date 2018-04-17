@@ -43,15 +43,7 @@
     <Compile Include="BinaryTreeItemDecription.cs" />
     <Compile Include="Calculator.cs" />
     <Compile Include="CalculatorStack.cs" />
-    <Compile Include="CalculatorTree.cs" />
     <Compile Include="IBinaryTreeItemDecription.cs" />
-    <Compile Include="Items\BinaryTreeItem.cs" />
-    <Compile Include="Items\DivideTreeItem.cs" />
-    <Compile Include="Items\ICalculatorTreeItem.cs" />
-    <Compile Include="Items\MinusTreeItem.cs" />
-    <Compile Include="Items\MultiplyTreeItem.cs" />
-    <Compile Include="Items\PlusTreeItem.cs" />
-    <Compile Include="Items\SimpleTreeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

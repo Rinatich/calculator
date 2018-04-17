@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Calculator.Items;
 
 namespace Calculator
 {
@@ -19,10 +18,10 @@ namespace Calculator
 
         static Calculator()
         {
-            _BinaryOperators.Add('+', new BinaryTreeItemDecription(1, (l, r) => new PlusTreeItem(l, r)));
-            _BinaryOperators.Add('-', new BinaryTreeItemDecription(1, (l, r) => new MinusTreeItem(l, r)));
-            _BinaryOperators.Add('*', new BinaryTreeItemDecription(2, (l, r) => new MultiplyTreeItem(l, r)));
-            _BinaryOperators.Add('/', new BinaryTreeItemDecription(2, (l, r) => new DivideTreeItem(l, r)));
+            _BinaryOperators.Add('+', new BinaryTreeItemDecription(1, (l, r) => l + r));
+            _BinaryOperators.Add('-', new BinaryTreeItemDecription(1, (l, r) => l - r));
+            _BinaryOperators.Add('*', new BinaryTreeItemDecription(2, (l, r) => l * r));
+            _BinaryOperators.Add('/', new BinaryTreeItemDecription(2, (l, r) => l / r));
         }
 
         private IBinaryTreeItemDecription GetBinaryOperatorOrNull(Char c, Boolean isUnaryPossible)
@@ -81,14 +80,14 @@ namespace Calculator
             return __result;
         }
 
-        private ICalculatorTreeItem BuildTree(String expression, ref Int32 currentIndex)
+        private Decimal BuildTree(String expression, ref Int32 currentIndex)
         {
             var __stack = new CalculatorStack();
 
             while (currentIndex < expression.Length)
             {
                 SkipWhite(expression, ref currentIndex);
-                ICalculatorTreeItem __nextItem;
+                Decimal __nextItem;
                 if (IsParenthesisStart(expression[currentIndex]))
                 {
                     ++currentIndex;
@@ -102,7 +101,7 @@ namespace Calculator
                 else
                 {
                     var __number = ReadNumber(expression, ref currentIndex, __stack.IsUnaryPossible());
-                    __nextItem = new SimpleTreeItem(__number);
+                    __nextItem = __number;
                 }
 
                 SkipWhite(expression, ref currentIndex);
@@ -129,11 +128,9 @@ namespace Calculator
                 throw new ArgumentNullException(nameof(inputData));
 
             var __index = 0;
-            var __tree = BuildTree(inputData, ref __index);
+            var __result = BuildTree(inputData, ref __index);
             if (__index < inputData.Length)
                 throw new Exception($"Распознавание выражение было остановлено по индексу {__index}");
-
-            var __result = __tree.Calculate();
 
             return __result;
         }
